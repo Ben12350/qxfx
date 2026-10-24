@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#13182d">
+  <meta name="description" content="一个双语、私密、温柔的线上情绪宣泄空间。">
+  <title>心屿 · 情绪疗愈小站</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="aurora aurora-one"></div>
+    <div class="aurora aurora-two"></div>
+    <div class="aurora aurora-three"></div>
+    <div class="grain"></div>
+    <div class="stars" id="stars"></div>
+  </div>
+
+  <section class="welcome" id="welcome" aria-label="Welcome">
+    <div class="welcome-top">
+      <a class="brand brand-onboarding" href="#" aria-label="心屿">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M5 19.5C7.5 17.5 10 17 12.5 18.5C15 20 16 20 18.5 18.5C21 17 23.5 17.5 27 20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M9 24C11.5 22 14 21.5 16 23C18 24.5 20.5 24 23 22" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".62"/>
+            <circle cx="16" cy="10" r="3.3" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+        </span>
+        <span>
+          <strong>心屿</strong>
+          <small>INNER ISLE</small>
+        </span>
+      </a>
+      <span class="step-count" id="stepCount">01 / 02</span>
+    </div>
+
+    <div class="welcome-stage">
+      <div class="welcome-step language-step is-active" id="languageStep">
+        <div class="intro-kicker">
+          <span></span>
+          A quiet place for whatever you feel
+        </div>
+        <h1>
+          <span>把心里的风雨</span>
+          <em>轻轻放在这里。</em>
+        </h1>
+        <p class="welcome-copy">
+          Choose the language you feel most at home in.<br>
+          请选择此刻让你最放松的语言。
+        </p>
+        <div class="language-options" role="group" aria-label="选择语言 / Choose language">
+          <button class="language-card" type="button" data-language="zh">
+            <span class="language-glyph">中</span>
+            <span class="language-name">
+              <strong>中文</strong>
+              <small>用熟悉的语言，慢慢说</small>
+            </span>
+            <span class="language-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="language-card" type="button" data-language="en">
+            <span class="language-glyph language-glyph-en">En</span>
+            <span class="language-name">
+              <strong>English</strong>
+              <small>Say it in your own words</small>
+            </span>
+            <span class="language-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+        <p class="welcome-note">
+          <span class="privacy-dot"></span>
+          <span>Your words stay on this device · 你的倾诉仅保存在本机</span>
+        </p>
+      </div>
+
+      <div class="welcome-step music-step" id="musicStep" aria-hidden="true">
+        <div class="sound-visual" aria-hidden="true">
+          <div class="sound-halo halo-one"></div>
+          <div class="sound-halo halo-two"></div>
+          <div class="sound-core">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M12 19V9.2L24 6v10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <ellipse cx="8.5" cy="20" rx="3.5" ry="2.6" transform="rotate(-20 8.5 20)" fill="currentColor"/>
+              <ellipse cx="20.5" cy="17" rx="3.5" ry="2.6" transform="rotate(-20 20.5 17)" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="sound-bars">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+        <div class="intro-kicker"><span></span><b id="musicKicker">ONE MORE THING</b></div>
+        <h2 id="musicTitle">要让一点声音，<br>陪你待一会儿吗？</h2>
+        <p class="welcome-copy" id="musicCopy">我们会播放一段轻柔的环境音，不打扰，只陪伴。</p>
+        <div class="music-actions">
+          <button class="choice-button choice-primary" type="button" id="musicYes">
+            <span class="choice-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 18V6l10-2v12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18.5" r="2.5" fill="currentColor"/><circle cx="16.5" cy="16.5" r="2.5" fill="currentColor"/></svg>
+            </span>
+            <span id="musicYesText">开启舒缓音乐</span>
+          </button>
+          <button class="choice-button" type="button" id="musicNo">
+            <span id="musicNoText">安静地进入</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <button class="text-back" type="button" id="backToLanguage">← <span id="backText">返回选择语言</span></button>
+      </div>
+    </div>
+
+    <div class="welcome-footer">
+      <span>PRIVATE · GENTLE · YOURS</span>
+      <span class="footer-year">A moment for you, 2026</span>
+    </div>
+  </section>
+
+  <div class="site is-hidden" id="site">
+    <header class="site-header">
+      <a class="brand" href="#station" aria-label="心屿">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M5 19.5C7.5 17.5 10 17 12.5 18.5C15 20 16 20 18.5 18.5C21 17 23.5 17.5 27 20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M9 24C11.5 22 14 21.5 16 23C18 24.5 20.5 24 23 22" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".62"/>
+            <circle cx="16" cy="10" r="3.3" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+        </span>
+        <span>
+          <strong>心屿</strong>
+          <small>INNER ISLE</small>
+        </span>
+      </a>
+      <div class="header-actions">
+        <button class="icon-label-button" type="button" id="musicToggle" aria-pressed="false">
+          <span class="music-wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span id="musicToggleText">音乐已关</span>
+        </button>
+        <span class="header-divider"></span>
+        <button class="language-switch" type="button" id="languageSwitch" aria-label="Switch language">
+          <span id="languageSwitchText">EN</span>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="station" id="station">
+      <section class="sanctuary" aria-labelledby="mainTitle">
+        <div class="sanctuary-content">
+          <p class="eyebrow"><span></span><span id="eyebrowText">今晚，不必逞强</span></p>
+          <h1 id="mainTitle">
+            <span id="mainLineOne">让情绪有地方</span>
+            <em id="mainLineTwo">停靠。</em>
+          </h1>
+          <p class="sanctuary-copy" id="sanctuaryCopy">这里没有评判，也不用急着变好。<br>你只需要，把心里的话写下来。</p>
+          <div class="breath-promise">
+            <span class="promise-line"></span>
+            <p id="promiseText">一呼一吸之间，<br>世界会慢一点。</p>
+          </div>
+        </div>
+
+        <div class="orb-scene" aria-hidden="true">
+          <div class="orbit orbit-a"></div>
+          <div class="orbit orbit-b"></div>
+          <div class="moon-glow"></div>
+          <div class="still-water">
+            <span></span><span></span><span></span>
+          </div>
+          <p class="scene-word">STILL<br>WITHIN</p>
+        </div>
+
+        <div class="sanctuary-meta">
+          <span id="localTime">20:24</span>
+          <span class="meta-dot"></span>
+          <span id="todayText">一个适合慢下来的晚上</span>
+        </div>
+      </section>
+
+      <section class="composer-card" aria-labelledby="composerTitle">
+        <div class="composer-head">
+          <div>
+            <p class="mini-label"><span></span><span id="writerLabel">写给自己</span></p>
+            <h2 id="composerTitle">此刻，你还好吗？</h2>
+          </div>
+          <span class="mood-face" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="20.5" stroke="currentColor" opacity=".32"/>
+              <path d="M16.5 28.5C19 30.5 21.4 31.4 24 31.4C26.6 31.4 29 30.5 31.5 28.5" stroke="currentColor" stroke-width="1.45" stroke-linecap="round"/>
+              <circle cx="18" cy="20" r="1.4" fill="currentColor"/>
+              <circle cx="30" cy="20" r="1.4" fill="currentColor"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="mood-section">
+          <p class="field-label" id="moodLabel">靠近此刻的感受 <span>optional</span></p>
+          <div class="mood-chips" role="group" aria-labelledby="moodLabel">
+            <button type="button" class="mood-chip" data-mood="tired"><span>◡</span><b id="moodTired">有点累</b></button>
+            <button type="button" class="mood-chip" data-mood="wronged"><span>⌢</span><b id="moodWronged">很委屈</b></button>
+            <button type="button" class="mood-chip" data-mood="anxious"><span>≈</span><b id="moodAnxious">有些焦虑</b></button>
+            <button type="button" class="mood-chip" data-mood="angry"><span>⌁</span><b id="moodAngry">在生气</b></button>
+            <button type="button" class="mood-chip" data-mood="sad"><span>·</span><b id="moodSad">很难过</b></button>
+            <button type="button" class="mood-chip" data-mood="lonely"><span>◌</span><b id="moodLonely">有点孤独</b></button>
+            <button type="button" class="mood-chip" data-mood="unknown"><span>∿</span><b id="moodUnknown">说不清</b></button>
+          </div>
+        </div>
+
+        <div class="writing-area" id="writingArea">
+          <label class="sr-only" for="message" id="messageLabel">写下此刻的心情</label>
+          <textarea id="message" maxlength="5000" rows="7" spellcheck="true"></textarea>
+          <div class="textarea-placeholder" id="placeholder" aria-hidden="true">
+            <span id="placeholderOne">把那些没说出口的话，</span>
+            <span id="placeholderTwo">都留在这里吧……</span>
+          </div>
+          <div class="writing-bottom">
+            <span class="writing-hint" id="writingHint">不需要组织语言，想到什么就写什么</span>
+            <span class="char-count"><span id="charCount">0</span> / 5000</span>
+          </div>
+        </div>
+
+        <section class="handwriting-panel" id="handwritingPanel" aria-hidden="true">
+          <div class="handwriting-head">
+            <div>
+              <p id="handwritingTitle">手写你的心情</p>
+              <span id="handwritingHint">写下来，不必让任何人看懂</span>
+            </div>
+            <div class="pen-controls">
+              <button type="button" id="undoStroke" aria-label="撤销">
+                <svg viewBox="0 0 20 20" fill="none"><path d="M7.5 6.5L3.5 10l4 3.5M4 10h6.5a5 5 0 110 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button type="button" id="clearCanvas" aria-label="清空">
+                <svg viewBox="0 0 20 20" fill="none"><path d="M5 6h10M8 3.5h4M6.5 6l.6 9.5h5.8l.6-9.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="handwritingCanvas"></canvas>
+            <span class="canvas-watermark" aria-hidden="true">此刻</span>
+          </div>
+        </section>
+
+        <div class="input-tools">
+          <div class="mode-label"><span id="modeLabel">输入方式</span><i></i></div>
+          <div class="tool-buttons">
+            <button type="button" class="tool-button is-active" id="keyboardMode" aria-pressed="true">
+              <svg viewBox="0 0 22 22" fill="none"><rect x="2.8" y="6" width="16.4" height="11" rx="2.2" stroke="currentColor" stroke-width="1.35"/><path d="M6 9h1M9.5 9h1M13 9h1M16.5 9h.1M6 12h1M9.5 12h1M13 12h1M16.5 12h.1M7 15h8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+              <span id="keyboardText">键盘</span>
+            </button>
+            <button type="button" class="tool-button" id="voiceMode" aria-pressed="false">
+              <svg viewBox="0 0 22 22" fill="none"><rect x="8.1" y="2.7" width="5.8" height="10.4" rx="2.9" stroke="currentColor" stroke-width="1.35"/><path d="M5 10.2v.8a6 6 0 0012 0v-.8M11 17v2.3M8 19.3h6" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/></svg>
+              <span id="voiceText">语音</span>
+            </button>
+            <button type="button" class="tool-button" id="handwritingMode" aria-pressed="false">
+              <svg viewBox="0 0 22 22" fill="none"><path d="M12.7 4.2l4.1 4.1M4.1 17.9l1-4.6L14.7 3.7a1.6 1.6 0 012.2 0l.4.4a1.6 1.6 0 010 2.2L7.7 16.9l-3.6 1z" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.7 5.3l4 4" stroke="currentColor" stroke-width="1.1"/></svg>
+              <span id="handwritingText">手写</span>
+            </button>
+          </div>
+          <div class="voice-status" id="voiceStatus" role="status">
+            <span class="voice-dot"></span>
+            <span id="voiceStatusText">正在聆听…</span>
+          </div>
+        </div>
+
+        <button class="send-button" id="sendButton" type="button">
+          <span class="send-label" id="sendLabel">把心事交给小站</span>
+          <span class="send-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="send-loader" aria-hidden="true"></span>
+        </button>
+        <p class="local-note">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.8" stroke="currentColor" stroke-width="1.1"/><path d="M5.3 7V5.2a2.7 2.7 0 015.4 0V7" stroke="currentColor" stroke-width="1.1"/></svg>
+          <span id="localNoteText">这封信只寄往本机后台，不会上传到云端</span>
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span id="footerText">心屿 · 给每一种心情一盏灯</span>
+      <span>BE GENTLE WITH YOURSELF</span>
+    </footer>
+  </div>
+
+  <section class="reply-screen" id="replyScreen" role="dialog" aria-modal="true" aria-labelledby="replyTitle" aria-hidden="true">
+    <div class="reply-glow" aria-hidden="true"></div>
+    <div class="reply-inner">
+      <button class="reply-close" id="replyClose" type="button" aria-label="关闭">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="reply-symbol" aria-hidden="true">
+        <svg viewBox="0 0 54 54" fill="none">
+          <path d="M12 30.5c4-4.2 8.1-4.4 13-1.1 4.9 3.3 9 3.1 14-1.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          <path d="M14 38c4.3-3.6 8.5-3.9 13-.9 4.5 3 8.7 2.7 13-1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".6"/>
+          <circle cx="27" cy="15" r="4" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="reply-meta">
+        <span id="replyMeta">小站给你的回信</span>
+        <span id="replyMoods">疲惫 · 委屈</span>
+      </div>
+      <h2 id="replyTitle">你不是不够好，<br>只是今天太累了。</h2>
+      <div class="reply-letter" id="replyLetter"></div>
+      <div class="reply-breath">
+        <div class="breathing-circle"><span></span></div>
+        <div>
+          <p id="breatheTitle">和我一起，慢慢呼吸</p>
+          <span id="breatheCopy">吸气 4 秒 · 停留 2 秒 · 呼气 6 秒</span>
+        </div>
+      </div>
+      <div class="reply-actions">
+        <button class="reply-primary" type="button" id="readReply">
+          <svg viewBox="0 0 22 22" fill="none"><path d="M4 10v2a7 7 0 0014 0v-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><rect x="3" y="8.5" width="3.2" height="5.2" rx="1.6" fill="currentColor"/><rect x="15.8" y="8.5" width="3.2" height="5.2" rx="1.6" fill="currentColor"/></svg>
+          <span id="readText">轻声读给我听</span>
+        </button>
+        <button class="reply-secondary" type="button" id="writeAgain">
+          <span id="againText">再写一点</span>
+          <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+      <p class="reply-saved" id="replySaved">已安静地收进本机后台</p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="toast-icon">i</span>
+    <span id="toastText"></span>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
